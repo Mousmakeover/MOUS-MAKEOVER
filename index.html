@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Mou's Makeover in Kolkata — luxury beauty salon services, facials, skincare, hair styling, waxing, nails and festive beauty offers. Book appointments on WhatsApp or call +91 9073704419.">
+    <meta name="description" content="Mou's Makeover in Kolkata — luxury beauty care services, facials, skincare, hair styling, waxing, nails and festive beauty offers. Book appointments on WhatsApp or call +91 9073704419.">
     <meta name="keywords" content="Mou's Makeover, beauty salon Kolkata, salon Barisha Kolkata, facial Kolkata, hair spa Kolkata, waxing Kolkata, nail extension Kolkata, beauty academy Kolkata">
     <meta name="author" content="Mou's Makeover">
     <meta name="robots" content="index, follow, max-image-preview:large">
@@ -13,7 +13,7 @@
     <meta property="og:description" content="Luxury facials, skincare, hair styling, waxing, nails and festive beauty offers in Kolkata.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=80">
     <meta name="twitter:card" content="summary_large_image">
-    <title>Mou's Makeover | Luxury Beauty Salon & Academy Kolkata</title>
+    <title>Mou's Makeover | Luxury Beauty Care Kolkata</title>
     <!-- Google Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -120,7 +120,7 @@
             min-height: 100svh;
             background:
                 linear-gradient(90deg, rgba(10,10,13,.94) 0%, rgba(10,10,13,.72) 43%, rgba(10,10,13,.25) 100%),
-                url('https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&w=1800&q=90') center/cover no-repeat;
+                url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1800&q=90') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -466,6 +466,131 @@
             color: #fff;
         }
 
+        /* Customer Reviews Styles */
+        .reviews-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 30px;
+        }
+
+        .reviews-summary-card, .review-form-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .score-box {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .big-rating {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--lotus-pink);
+            line-height: 1;
+            font-family: 'Cinzel', serif;
+        }
+
+        .rating-stars-static {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            margin: 10px 0 5px;
+        }
+
+        .stars-interactive {
+            display: flex;
+            gap: 8px;
+            font-size: 1.5rem;
+            color: #555;
+            cursor: pointer;
+            margin: 10px 0 20px;
+        }
+
+        .stars-interactive i.active {
+            color: var(--accent-gold);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .form-control {
+            width: 100%;
+            background: rgba(22, 15, 23, 0.7);
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            padding: 12px 15px;
+            color: var(--text-light);
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--lotus-pink);
+        }
+
+        .reviews-list-wrapper {
+            margin-top: 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .review-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            padding: 20px;
+            transition: 0.3s ease;
+        }
+
+        .review-card:hover {
+            border-color: var(--lotus-pink);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .reviewer-info h4 {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .service-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            color: var(--lotus-pink);
+            background: rgba(217, 107, 152, 0.15);
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-top: 2px;
+        }
+
+        .review-date {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .review-text {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
         /* Contact & Info Grid */
         .info-grid {
             display: grid;
@@ -544,6 +669,7 @@
             .hero h1 { font-size: 2.2rem; }
             .nav-links { display: none; }
             .info-grid { padding: 25px; }
+            .reviews-container { grid-template-columns: 1fr; }
         }
 
         :focus-visible { outline: 3px solid var(--accent-gold); outline-offset: 3px; }
@@ -614,7 +740,7 @@
         .hero {
             background:
                 linear-gradient(90deg, rgba(22,15,23,.93) 0%, rgba(22,15,23,.70) 45%, rgba(22,15,23,.24) 100%),
-                url('https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&w=1800&q=90') center/cover no-repeat;
+                url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1800&q=90') center/cover no-repeat;
         }
 
         .hero::before {
@@ -778,6 +904,39 @@
       "priceRange":"₹₹"
     }
     </script>
+
+<style id="image-fallback-repair">
+  img { background:#24151f; }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const fallback = (label) => {
+    const safe = String(label || "Mou's Makeover").replace(/[<>&"]/g, "");
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#24151f"/><stop offset="1" stop-color="#160f17"/></linearGradient></defs>
+      <rect width="900" height="600" fill="url(#g)"/>
+      <circle cx="450" cy="260" r="115" fill="#d96b98" opacity=".18"/>
+      <path d="M450 370 C390 315 335 285 365 245 C395 205 435 240 450 270 C465 240 505 205 535 245 C565 285 510 315 450 370Z" fill="#f3a6c4" opacity=".9"/>
+      <text x="450" y="470" text-anchor="middle" fill="#fff4f7" font-family="Georgia,serif" font-size="34">${safe}</text>
+      <text x="450" y="515" text-anchor="middle" fill="#cdbbc5" font-family="Arial,sans-serif" font-size="20">Mou's Makeover</text>
+    </svg>`;
+    return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+  };
+
+  document.querySelectorAll("img").forEach(img => {
+    img.addEventListener("error", function () {
+      if (this.dataset.fallbackApplied) return;
+      this.dataset.fallbackApplied = "1";
+      this.src = fallback(this.alt || "Beauty Makeup");
+    }, { once: true });
+
+    if (img.complete && img.naturalWidth === 0) {
+      img.dispatchEvent(new Event("error"));
+    }
+  });
+});
+</script>
+
 </head>
 <body>
 
@@ -788,6 +947,7 @@
         <ul class="nav-links">
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#offers">Special Offers</a></li>
+            <li><a href="#reviews">Reviews</a></li>
             <li><a href="#contact">Contact & Location</a></li>
         </ul>
         <a href="tel:+919073704419" class="btn-gold"><i class="fa-solid fa-phone" aria-hidden="true"></i> 9073704419</a>
@@ -795,6 +955,7 @@
         <div class="mobile-nav" id="mobileMenu">
             <a href="#gallery">Gallery</a>
             <a href="#offers">Special Offers</a>
+            <a href="#reviews">Reviews</a>
             <a href="#contact">Contact &amp; Location</a>
             <a href="tel:+919073704419" class="mobile-call"><i class="fa-solid fa-phone" aria-hidden="true"></i> Call 9073704419</a>
         </div>
@@ -873,11 +1034,11 @@
     <section class="section" aria-labelledby="experience-title">
         <div class="beauty-intro">
             <div class="beauty-intro-photo">
-                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=85" alt="Elegant modern beauty salon interior">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=900&q=85" alt="Makeup of a newly married bride">
             </div>
             <div class="beauty-intro-copy">
                 <div class="hero-kicker">Your Beauty, Your Signature</div>
-                <h3 id="experience-title">A More Beautiful <span>You</span></h3>
+                <h3 id="experience-title">A Beautiful <span>Newly Married Bride</span></h3>
                 <p>Step into a refined beauty experience designed around you. From a fresh glow and polished nails to beautiful hair and special-occasion makeovers, choose the treatment that makes you feel your best.</p>
                 <div class="intro-points">
                     <div class="intro-point"><i class="fa-solid fa-wand-magic-sparkles"></i> Expert Styling</div>
@@ -921,7 +1082,7 @@
                         <li><i class="fa-solid fa-star"></i> Threading</li>
                         <li><i class="fa-solid fa-star"></i> Pedicure</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Offer%2001%20(₹799)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20OFFER%20%2301%0AName%3A%20Lotus%20Diamond%20Facial%0APrice%3A%20%E2%82%B9799%2F-%0AServices%3A%0A%E2%80%A2%20Lotus%20Diamond%20Facial%0A%E2%80%A2%20Raga%20D-Tan%0A%E2%80%A2%20Threading%0A%E2%80%A2%20Pedicure" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -938,7 +1099,7 @@
                         <li><i class="fa-solid fa-star"></i> Threading</li>
                         <li><i class="fa-solid fa-star"></i> Hand Waxing</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Offer%2002%20(₹649)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20OFFER%20%2302%0AName%3A%20VLCC%20Anti%20Tan%20Facial%0APrice%3A%20%E2%82%B9649%2F-%0AServices%3A%0A%E2%80%A2%20VLCC%20Anti%20Tan%20Facial%0A%E2%80%A2%20Threading%0A%E2%80%A2%20Hand%20Waxing" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -955,7 +1116,7 @@
                         <li><i class="fa-solid fa-star"></i> Manicure</li>
                         <li><i class="fa-solid fa-star"></i> Threading</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Offer%2003%20(₹799)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20OFFER%20%2303%0AName%3A%20VLCC%20Diamond%20Facial%0APrice%3A%20%E2%82%B9799%2F-%0AServices%3A%0A%E2%80%A2%20VLCC%20Diamond%20Facial%0A%E2%80%A2%20Manicure%0A%E2%80%A2%20Threading" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -972,7 +1133,7 @@
                         <li><i class="fa-solid fa-star"></i> D-Tan</li>
                         <li><i class="fa-solid fa-star"></i> Threading</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Offer%2004%20(₹799)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20OFFER%20%2304%0AName%3A%20Loreal%20Hair%20Spa%20%28Long%20Hair%29%0APrice%3A%20%E2%82%B9799%2F-%0AServices%3A%0A%E2%80%A2%20Loreal%20Hair%20Spa%20%28Long%20Hair%29%0A%E2%80%A2%20D-Tan%0A%E2%80%A2%20Threading" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -989,7 +1150,7 @@
                         <li><i class="fa-solid fa-star"></i> Half Leg Wax</li>
                         <li><i class="fa-solid fa-star"></i> Hair Cutting</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Offer%2005%20(₹549)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20OFFER%20%2305%0AName%3A%20Face%20Cleanup%0APrice%3A%20%E2%82%B9549%2F-%0AServices%3A%0A%E2%80%A2%20Face%20Cleanup%0A%E2%80%A2%20Half%20Leg%20Wax%0A%E2%80%A2%20Hair%20Cutting" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1005,7 +1166,7 @@
                         <li><i class="fa-solid fa-star"></i> Hair Spa (Short Hair)</li>
                         <li><i class="fa-solid fa-star"></i> Manicure</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Offer%2006%20(₹549)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20OFFER%20%2306%0AName%3A%20Hair%20Spa%20%28Short%20Hair%29%0APrice%3A%20%E2%82%B9549%2F-%0AServices%3A%0A%E2%80%A2%20Hair%20Spa%20%28Short%20Hair%29%0A%E2%80%A2%20Manicure" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1023,7 +1184,7 @@
                         <li><i class="fa-solid fa-star"></i> Threading</li>
                         <li><i class="fa-solid fa-star"></i> D-Tan</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Offer%2007%20(₹699)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20OFFER%20%2307%0AName%3A%20Aroma%20Facial%0APrice%3A%20%E2%82%B9699%2F-%0AServices%3A%0A%E2%80%A2%20Aroma%20Facial%0A%E2%80%A2%20Pedicure%0A%E2%80%A2%20Threading%0A%E2%80%A2%20D-Tan" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1041,7 +1202,7 @@
                         <li><i class="fa-solid fa-star"></i> Threading</li>
                         <li><i class="fa-solid fa-star"></i> Hair Cutting</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Offer%2008%20(₹749)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20OFFER%20%2308%0AName%3A%20Jovees%20Gold%20Facial%0APrice%3A%20%E2%82%B9749%2F-%0AServices%3A%0A%E2%80%A2%20Jovees%20Gold%20Facial%0A%E2%80%A2%20D-Tan%0A%E2%80%A2%20Threading%0A%E2%80%A2%20Hair%20Cutting" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1056,7 +1217,7 @@
                     <ul class="card-list">
                         <li><i class="fa-solid fa-star"></i> Nail Extension (Both Hands)</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Nail%20Extension%20(₹299)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20OFFER%20%2309%0AName%3A%20Nail%20Extension%20%28Both%20Hands%29%0APrice%3A%20%E2%82%B9299%2F-%0AServices%3A%0A%E2%80%A2%20Nail%20Extension%20%28Both%20Hands%29" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1073,7 +1234,7 @@
                         <li><i class="fa-solid fa-star"></i> Pedicure</li>
                         <li><i class="fa-solid fa-star"></i> Threading</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Offer%2010%20(₹1899)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20OFFER%20%2310%0AName%3A%20O3%2B%20Facial%0APrice%3A%20%E2%82%B91899%2F-%0AServices%3A%0A%E2%80%A2%20O3%2B%20Facial%0A%E2%80%A2%20Pedicure%0A%E2%80%A2%20Threading" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1092,7 +1253,7 @@
                         <li><i class="fa-solid fa-star"></i> Pedicure & Hair Cutting</li>
                         <li><i class="fa-solid fa-star"></i> Hair Spa</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Grand%20Combo%2011%20(₹1899)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20OFFER%20%2311%0AName%3A%20Lotus%20Facial%0APrice%3A%20%E2%82%B91899%2F-%0AServices%3A%0A%E2%80%A2%20Lotus%20Facial%0A%E2%80%A2%20Full%20Face%20Threading%0A%E2%80%A2%20D-Tan%20%26%20Hand%20Waxing%0A%E2%80%A2%20Pedicure%20%26%20Hair%20Cutting%0A%E2%80%A2%20Hair%20Spa" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1109,7 +1270,7 @@
                         <li><i class="fa-solid fa-star"></i> D-Tan</li>
                         <li><i class="fa-solid fa-star"></i> Pedicure & Manicure</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Offer%2012%20(₹999)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20OFFER%20%2312%0AName%3A%20Fruit%20Facial%0APrice%3A%20%E2%82%B9999%2F-%0AServices%3A%0A%E2%80%A2%20Fruit%20Facial%0A%E2%80%A2%20D-Tan%0A%E2%80%A2%20Pedicure%20%26%20Manicure" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1125,7 +1286,7 @@
                         <li><i class="fa-solid fa-star"></i> Korean Glass Facial</li>
                         <li><i class="fa-solid fa-star"></i> Threading</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Korean%20Glass%20Facial%20(₹1199)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20OFFER%20%2313%0AName%3A%20Korean%20Glass%20Facial%0APrice%3A%20%E2%82%B91199%2F-%0AServices%3A%0A%E2%80%A2%20Korean%20Glass%20Facial%0A%E2%80%A2%20Threading" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1142,7 +1303,7 @@
                         <li><i class="fa-solid fa-star"></i> Crystal Pedicure</li>
                         <li><i class="fa-solid fa-star"></i> Hand Waxing</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Offer%2014%20(₹1299)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20OFFER%20%2314%0AName%3A%20Collagen%20Boost%20Skin%20Lift%20Facial%0APrice%3A%20%E2%82%B91299%2F-%0AServices%3A%0A%E2%80%A2%20Collagen%20Boost%20Skin%20Lift%20Facial%0A%E2%80%A2%20Crystal%20Pedicure%0A%E2%80%A2%20Hand%20Waxing" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1159,7 +1320,7 @@
                         <li><i class="fa-solid fa-star"></i> Hand D-Tan</li>
                         <li><i class="fa-solid fa-star"></i> U-Hair Cutting</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Offer%2015%20(₹999)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20OFFER%20%2315%0AName%3A%20Lotus%20Korean%20Glass%20Facial%0APrice%3A%20%E2%82%B9999%2F-%0AServices%3A%0A%E2%80%A2%20Lotus%20Korean%20Glass%20Facial%0A%E2%80%A2%20Hand%20D-Tan%0A%E2%80%A2%20U-Hair%20Cutting" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1176,7 +1337,7 @@
                         <li><i class="fa-solid fa-star"></i> Hand Bleach Massage</li>
                         <li><i class="fa-solid fa-star"></i> Pedicure</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Facial%20Combo%20(₹1499)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20PAGE%202%20-%20%2301%0AName%3A%20Facial%20%2B%20D-Tan%0APrice%3A%20%E2%82%B91499%2F-%0AServices%3A%0A%E2%80%A2%20Facial%20%2B%20D-Tan%0A%E2%80%A2%20Hand%20Bleach%20Massage%0A%E2%80%A2%20Pedicure" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1191,7 +1352,7 @@
                     <ul class="card-list">
                         <li><i class="fa-solid fa-star"></i> Body Polish</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Body%20Polish%20(₹899)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20PAGE%202%20-%20%2302%0AName%3A%20Body%20Polish%0APrice%3A%20%E2%82%B9899%2F-%0AServices%3A%0A%E2%80%A2%20Body%20Polish" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1206,7 +1367,7 @@
                     <ul class="card-list">
                         <li><i class="fa-solid fa-star"></i> Body Oil Massage</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Body%20Oil%20Massage%20(₹399)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20PAGE%202%20-%20%2303%0AName%3A%20Body%20Oil%20Massage%0APrice%3A%20%E2%82%B9399%2F-%0AServices%3A%0A%E2%80%A2%20Body%20Oil%20Massage" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1222,7 +1383,7 @@
                         <li><i class="fa-solid fa-star"></i> Lotus Professional</li>
                         <li><i class="fa-solid fa-star"></i> D-Tan</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Lotus%20Professional%20(₹549)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20PAGE%202%20-%20%2304%0AName%3A%20Lotus%20Professional%0APrice%3A%20%E2%82%B9549%2F-%0AServices%3A%0A%E2%80%A2%20Lotus%20Professional%0A%E2%80%A2%20D-Tan" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1239,7 +1400,7 @@
                         <li><i class="fa-solid fa-star"></i> D-Tan</li>
                         <li><i class="fa-solid fa-star"></i> Threading</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Charcoal%20Facial%20(₹449)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20PAGE%202%20-%20%2305%0AName%3A%20Charcoal%20Facial%0APrice%3A%20%E2%82%B9449%2F-%0AServices%3A%0A%E2%80%A2%20Charcoal%20Facial%0A%E2%80%A2%20D-Tan%0A%E2%80%A2%20Threading" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1256,7 +1417,7 @@
                         <li><i class="fa-solid fa-star"></i> D-Tan</li>
                         <li><i class="fa-solid fa-star"></i> Hand Manicure</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Lotus%20Rose%20Gold%20(₹849)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20PAGE%202%20-%20%2306%0AName%3A%20Lotus%20Rose%20Gold%0APrice%3A%20%E2%82%B9849%2F-%0AServices%3A%0A%E2%80%A2%20Lotus%20Rose%20Gold%0A%E2%80%A2%20D-Tan%0A%E2%80%A2%20Hand%20Manicure" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1272,7 +1433,7 @@
                         <li><i class="fa-solid fa-star"></i> Lotus Gold</li>
                         <li><i class="fa-solid fa-star"></i> D-Tan</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Lotus%20Gold%20(₹699)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20PAGE%202%20-%20B1%0AName%3A%20Lotus%20Gold%0APrice%3A%20%E2%82%B9699%2F-%0AServices%3A%0A%E2%80%A2%20Lotus%20Gold%0A%E2%80%A2%20D-Tan" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1288,7 +1449,7 @@
                         <li><i class="fa-solid fa-star"></i> Hand Waxing</li>
                         <li><i class="fa-solid fa-star"></i> D-Tan</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Hand%20Waxing%20%2B%20D-Tan%20(₹499)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20PAGE%202%20-%20B2%0AName%3A%20Hand%20Waxing%0APrice%3A%20%E2%82%B9499%2F-%0AServices%3A%0A%E2%80%A2%20Hand%20Waxing%0A%E2%80%A2%20D-Tan" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1304,7 +1465,7 @@
                         <li><i class="fa-solid fa-star"></i> Hand Waxing + Leg Waxing</li>
                         <li><i class="fa-solid fa-star"></i> Underarms Waxing</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Full%20Waxing%20Combo%20(₹649)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20PAGE%202%20-%20B3%0AName%3A%20Hand%20Waxing%20%2B%20Leg%20Waxing%0APrice%3A%20%E2%82%B9649%2F-%0AServices%3A%0A%E2%80%A2%20Hand%20Waxing%20%2B%20Leg%20Waxing%0A%E2%80%A2%20Underarms%20Waxing" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1320,7 +1481,7 @@
                         <li><i class="fa-solid fa-star"></i> Leg Waxing</li>
                         <li><i class="fa-solid fa-star"></i> D-Tan</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Leg%20Waxing%20%2B%20D-Tan%20(₹399)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20PAGE%202%20-%20B4%0AName%3A%20Leg%20Waxing%0APrice%3A%20%E2%82%B9399%2F-%0AServices%3A%0A%E2%80%A2%20Leg%20Waxing%0A%E2%80%A2%20D-Tan" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1336,7 +1497,7 @@
                         <li><i class="fa-solid fa-star"></i> Full Face Waxing</li>
                         <li><i class="fa-solid fa-star"></i> Underarms Waxing</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Face%20%2B%20Underarms%20Waxing%20(₹199)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20PAGE%202%20-%20B5%0AName%3A%20Full%20Face%20Waxing%0APrice%3A%20%E2%82%B9199%2F-%0AServices%3A%0A%E2%80%A2%20Full%20Face%20Waxing%0A%E2%80%A2%20Underarms%20Waxing" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1352,7 +1513,7 @@
                         <li><i class="fa-solid fa-star"></i> Pedicure + Manicure</li>
                         <li><i class="fa-solid fa-star"></i> D-Tan</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Pedi%20Mani%20Detan%20(₹649)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20PAGE%202%20-%20B6%0AName%3A%20Pedicure%20%2B%20Manicure%0APrice%3A%20%E2%82%B9649%2F-%0AServices%3A%0A%E2%80%A2%20Pedicure%20%2B%20Manicure%0A%E2%80%A2%20D-Tan" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1367,7 +1528,7 @@
                     <ul class="card-list">
                         <li><i class="fa-solid fa-star"></i> U & V Straight Cut</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Straight%20Cut%20(₹149)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20PAGE%202%20-%20B7%0AName%3A%20U%20%26%20V%20Straight%20Cut%0APrice%3A%20%E2%82%B9149%2F-%0AServices%3A%0A%E2%80%A2%20U%20%26%20V%20Straight%20Cut" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
@@ -1382,13 +1543,122 @@
                     <ul class="card-list">
                         <li><i class="fa-solid fa-star"></i> Step + Layers Cut</li>
                     </ul>
-                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Hi,%20I%20want%20to%20book%20Step%20Layers%20Cut%20(₹199)" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
+                    <a aria-label="Book this offer on WhatsApp" href="https://wa.me/919073704419?text=Code%3A%20PAGE%202%20-%20B8%0AName%3A%20Step%20%2B%20Layers%20Cut%0APrice%3A%20%E2%82%B9199%2F-%0AServices%3A%0A%E2%80%A2%20Step%20%2B%20Layers%20Cut" class="book-btn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Book Offer</a>
                 </div>
             </div>
 
             <div class="no-results" aria-live="polite">No offers found in this category.</div>
         </div>
         <p class="booking-note">Prices and availability may be subject to change. Please confirm the selected offer with the salon before your appointment.</p>
+    </section>
+
+    <!-- Reviews & Ratings Section -->
+    <section class="section" id="reviews">
+        <div class="section-header">
+            <h2>Client Reviews & Ratings</h2>
+            <p>Read what our happy clients say or leave your own feedback</p>
+        </div>
+
+        <div class="reviews-container">
+            <!-- Review Stats Card -->
+            <div class="reviews-summary-card">
+                <div class="score-box">
+                    <div class="big-rating" id="avgRatingScore">4.9</div>
+                    <div class="rating-stars-static">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p style="color:var(--text-muted); font-size: 0.85rem;" id="totalReviewCount">Based on 18 verified customer reviews</p>
+                </div>
+                
+                <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 15px; font-weight: 600;">Share Your Experience</p>
+                <!-- Add Review Form -->
+                <form id="reviewForm">
+                    <div class="form-group">
+                        <label>Your Rating</label>
+                        <div class="stars-interactive" id="starRatingInput">
+                            <i class="fa-solid fa-star active" data-value="1"></i>
+                            <i class="fa-solid fa-star active" data-value="2"></i>
+                            <i class="fa-solid fa-star active" data-value="3"></i>
+                            <i class="fa-solid fa-star active" data-value="4"></i>
+                            <i class="fa-solid fa-star active" data-value="5"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="revName">Your Name</label>
+                        <input type="text" id="revName" class="form-control" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="revService">Service Taken</label>
+                        <input type="text" id="revService" class="form-control" placeholder="e.g., Lotus Diamond Facial, Bridal Makeup" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="revComment">Your Feedback</label>
+                        <textarea id="revComment" class="form-control" rows="3" placeholder="Tell us about your experience..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-gold" style="width: 100%; border: none; cursor: pointer;">Submit Review</button>
+                </form>
+            </div>
+
+            <!-- Reviews Display List -->
+            <div>
+                <h3 style="color:var(--text-light); font-size: 1.3rem; margin-bottom: 15px;">Recent Feedback</h3>
+                <div class="reviews-list-wrapper" id="reviewsList">
+                    
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <h4>Pooja Banerjee</h4>
+                                <span class="service-tag">Korean Glass Facial</span>
+                            </div>
+                            <div>
+                                <div style="color: var(--accent-gold); font-size: 0.8rem;">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="review-date">2 days ago</span>
+                            </div>
+                        </div>
+                        <p class="review-text">Moumita di is extremely skilled! The Korean Glass Facial gave my skin an instant glow for the festive season. Highly recommend her Barisha studio!</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <h4>Srabani Das</h4>
+                                <span class="service-tag">Loreal Hair Spa & Cut</span>
+                            </div>
+                            <div>
+                                <div style="color: var(--accent-gold); font-size: 0.8rem;">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="review-date">1 week ago</span>
+                            </div>
+                        </div>
+                        <p class="review-text">Very relaxing experience. The hair spa left my hair feeling super soft and silky. Great value combo offers!</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <h4>Riya Chakraborty</h4>
+                                <span class="service-tag">Nail Extensions</span>
+                            </div>
+                            <div>
+                                <div style="color: var(--accent-gold); font-size: 0.8rem;">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                                </div>
+                                <span class="review-date">2 weeks ago</span>
+                            </div>
+                        </div>
+                        <p class="review-text">Got nail extensions done for ₹299/- offer. Absolutely stunning work with great finish and longevity!</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Location & Contact Info -->
@@ -1475,6 +1745,56 @@
                 const category = btn.dataset.category || 'all';
                 window.filterCategory(category, btn);
             }));
+
+            // Review Interactive Logic
+            const starInputs = document.querySelectorAll('#starRatingInput i');
+            let selectedRating = 5;
+
+            starInputs.forEach(star => {
+                star.addEventListener('click', () => {
+                    selectedRating = parseInt(star.getAttribute('data-value'));
+                    starInputs.forEach((s, index) => {
+                        s.classList.toggle('active', index < selectedRating);
+                    });
+                });
+            });
+
+            const reviewForm = document.getElementById('reviewForm');
+            const reviewsList = document.getElementById('reviewsList');
+
+            reviewForm?.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('revName').value;
+                const service = document.getElementById('revService').value;
+                const comment = document.getElementById('revComment').value;
+
+                let starsHtml = '';
+                for (let i = 0; i < 5; i++) {
+                    starsHtml += `<i class="fa-solid fa-star${i < selectedRating ? '' : '-o'}" style="${i < selectedRating ? 'color:var(--accent-gold);' : 'color:#555;'}"></i>`;
+                }
+
+                const newReview = document.createElement('div');
+                newReview.className = 'review-card';
+                newReview.innerHTML = `
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <h4>${name}</h4>
+                            <span class="service-tag">${service}</span>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.8rem;">${starsHtml}</div>
+                            <span class="review-date">Just now</span>
+                        </div>
+                    </div>
+                    <p class="review-text">${comment}</p>
+                `;
+
+                reviewsList.prepend(newReview);
+                reviewForm.reset();
+                selectedRating = 5;
+                starInputs.forEach(s => s.classList.add('active'));
+                alert('Thank you for your feedback!');
+            });
 
             // Back/forward navigation should not leave the mobile menu open.
             window.addEventListener('pageshow', () => setMenu(false));
