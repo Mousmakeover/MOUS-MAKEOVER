@@ -1571,7 +1571,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                     </div>
-                    <p style="color:var(--text-muted); font-size: 0.85rem;" id="totalReviewCount">Based on 18 verified customer reviews</p>
+                    <p style="color:var(--text-muted); font-size: 0.85rem;" id="totalReviewCount">Customer reviews from our website</p>
                 </div>
                 
                 <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 15px; font-weight: 600;">Share Your Experience</p>
@@ -1752,54 +1752,217 @@ document.addEventListener("DOMContentLoaded", function () {
 
             starInputs.forEach(star => {
                 star.addEventListener('click', () => {
-                    selectedRating = parseInt(star.getAttribute('data-value'));
+                    selectedRating = Number(star.getAttribute('data-value')) || 5;
                     starInputs.forEach((s, index) => {
                         s.classList.toggle('active', index < selectedRating);
                     });
                 });
             });
 
-            const reviewForm = document.getElementById('reviewForm');
-            const reviewsList = document.getElementById('reviewsList');
-
-            reviewForm?.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const name = document.getElementById('revName').value;
-                const service = document.getElementById('revService').value;
-                const comment = document.getElementById('revComment').value;
-
-                let starsHtml = '';
-                for (let i = 0; i < 5; i++) {
-                    starsHtml += `<i class="fa-solid fa-star${i < selectedRating ? '' : '-o'}" style="${i < selectedRating ? 'color:var(--accent-gold);' : 'color:#555;'}"></i>`;
-                }
-
-                const newReview = document.createElement('div');
-                newReview.className = 'review-card';
-                newReview.innerHTML = `
-                    <div class="review-header">
-                        <div class="reviewer-info">
-                            <h4>${name}</h4>
-                            <span class="service-tag">${service}</span>
-                        </div>
-                        <div>
-                            <div style="font-size: 0.8rem;">${starsHtml}</div>
-                            <span class="review-date">Just now</span>
-                        </div>
-                    </div>
-                    <p class="review-text">${comment}</p>
-                `;
-
-                reviewsList.prepend(newReview);
-                reviewForm.reset();
-                selectedRating = 5;
-                starInputs.forEach(s => s.classList.add('active'));
-                alert('Thank you for your feedback!');
-            });
+            // Firebase handles permanent review storage below.
+            // The old browser-only review submission has intentionally been removed.
 
             // Back/forward navigation should not leave the mobile menu open.
             window.addEventListener('pageshow', () => setMenu(false));
             const year = document.getElementById('year'); if (year) year.textContent = new Date().getFullYear();
         })();
+    </script>
+
+    <!-- Firebase Customer Reviews -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+        import {
+            getFirestore,
+            collection,
+            addDoc,
+            query,
+            orderBy,
+            onSnapshot,
+            serverTimestamp
+        } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+        // IMPORTANT: Replace every placeholder below with the Firebase Web App
+        // configuration from Firebase Console > Project settings > Your apps.
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.firebasestorage.app",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        const firebaseConfigured = !Object.values(firebaseConfig).some(value =>
+            String(value).startsWith("YOUR_")
+        );
+
+        const reviewForm = document.getElementById("reviewForm");
+        const reviewsList = document.getElementById("reviewsList");
+        const avgRatingScore = document.getElementById("avgRatingScore");
+        const totalReviewCount = document.getElementById("totalReviewCount");
+
+        // Existing reviews already displayed in the HTML. New Firebase reviews
+        // are inserted into this dedicated area so the original content remains.
+        const firebaseReviewsHost = document.createElement("div");
+        firebaseReviewsHost.id = "firebaseReviewsHost";
+        firebaseReviewsHost.style.display = "contents";
+        reviewsList?.prepend(firebaseReviewsHost);
+
+        const BASE_REVIEWS = [
+            { rating: 5 },
+            { rating: 5 },
+            { rating: 4.5 }
+        ];
+
+        function escapeText(value) {
+            return String(value ?? "").trim();
+        }
+
+        function formatReviewDate(timestamp) {
+            if (!timestamp) return "Just now";
+            const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
+            if (Number.isNaN(date.getTime())) return "Just now";
+            return new Intl.DateTimeFormat("en-IN", {
+                day: "numeric",
+                month: "short",
+                year: "numeric"
+            }).format(date);
+        }
+
+        function renderStars(rating) {
+            const rounded = Math.max(0, Math.min(5, Number(rating) || 0));
+            let html = "";
+            for (let i = 1; i <= 5; i++) {
+                html += `<i class="fa-solid fa-star" aria-hidden="true" style="color:${i <= rounded ? 'var(--accent-gold)' : '#555'}"></i>`;
+            }
+            return html;
+        }
+
+        function renderFirebaseReviews(reviews) {
+            if (!firebaseReviewsHost) return;
+            firebaseReviewsHost.innerHTML = "";
+
+            reviews.forEach(review => {
+                const card = document.createElement("article");
+                card.className = "review-card";
+
+                const header = document.createElement("div");
+                header.className = "review-header";
+
+                const info = document.createElement("div");
+                info.className = "reviewer-info";
+
+                const name = document.createElement("h4");
+                name.textContent = escapeText(review.name) || "Customer";
+
+                const service = document.createElement("span");
+                service.className = "service-tag";
+                service.textContent = escapeText(review.service) || "Beauty Service";
+
+                info.append(name, service);
+
+                const ratingBox = document.createElement("div");
+                ratingBox.innerHTML = `<div style="font-size:.8rem">${renderStars(review.rating)}</div>`;
+
+                const date = document.createElement("span");
+                date.className = "review-date";
+                date.textContent = formatReviewDate(review.createdAt);
+                ratingBox.appendChild(date);
+
+                header.append(info, ratingBox);
+
+                const text = document.createElement("p");
+                text.className = "review-text";
+                text.textContent = escapeText(review.comment);
+
+                card.append(header, text);
+                firebaseReviewsHost.appendChild(card);
+            });
+        }
+
+        function updateRatingSummary(reviews) {
+            const ratings = [
+                ...BASE_REVIEWS.map(item => item.rating),
+                ...reviews.map(item => Number(item.rating)).filter(Number.isFinite)
+            ];
+            const average = ratings.length
+                ? ratings.reduce((sum, value) => sum + value, 0) / ratings.length
+                : 0;
+
+            if (avgRatingScore) avgRatingScore.textContent = average.toFixed(1);
+            if (totalReviewCount) {
+                totalReviewCount.textContent = `Based on ${ratings.length} customer review${ratings.length === 1 ? "" : "s"}`;
+            }
+        }
+
+        if (!firebaseConfigured) {
+            console.warn("Firebase Reviews: Add your Firebase Web App configuration to enable permanent reviews.");
+            updateRatingSummary([]);
+        } else {
+            try {
+                const app = initializeApp(firebaseConfig);
+                const db = getFirestore(app);
+                const reviewsQuery = query(
+                    collection(db, "reviews"),
+                    orderBy("createdAt", "desc")
+                );
+
+                // Realtime listener: reviews remain after refresh and appear to
+                // other visitors when Firestore sends the updated snapshot.
+                onSnapshot(reviewsQuery, snapshot => {
+                    const reviews = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                    renderFirebaseReviews(reviews);
+                    updateRatingSummary(reviews);
+                }, error => {
+                    console.error("Firebase review listener error:", error);
+                });
+
+                reviewForm?.addEventListener("submit", async event => {
+                    event.preventDefault();
+
+                    const name = document.getElementById("revName")?.value.trim();
+                    const service = document.getElementById("revService")?.value.trim();
+                    const comment = document.getElementById("revComment")?.value.trim();
+
+                    if (!name || !service || !comment || selectedRating < 1 || selectedRating > 5) {
+                        alert("Please complete your name, service, rating and feedback.");
+                        return;
+                    }
+
+                    const submitButton = reviewForm.querySelector("button[type='submit']");
+                    const originalText = submitButton?.textContent || "Submit Review";
+                    if (submitButton) {
+                        submitButton.disabled = true;
+                        submitButton.textContent = "Saving...";
+                    }
+
+                    try {
+                        await addDoc(collection(db, "reviews"), {
+                            name: name.slice(0, 80),
+                            service: service.slice(0, 120),
+                            comment: comment.slice(0, 1000),
+                            rating: selectedRating,
+                            createdAt: serverTimestamp()
+                        });
+
+                        reviewForm.reset();
+                        selectedRating = 5;
+                        starInputs.forEach(star => star.classList.add("active"));
+                        alert("Thank you! Your review has been saved and is now visible to visitors.");
+                    } catch (error) {
+                        console.error("Firebase review save error:", error);
+                        alert("Sorry, your review could not be saved. Please try again.");
+                    } finally {
+                        if (submitButton) {
+                            submitButton.disabled = false;
+                            submitButton.textContent = originalText;
+                        }
+                    }
+                });
+            } catch (error) {
+                console.error("Firebase initialization error:", error);
+            }
+        }
     </script>
 
 </body>
